@@ -1,4 +1,4 @@
-# Singleton
+# `Singleton`
 
 ### Singleton, kendi türünde yalnızca bir nesnenin var olmasını sağlayan ve diğer tüm kodlar için ona tek bir erişim noktası sağlayan yaratıcı bir tasarım modelidir.
 
