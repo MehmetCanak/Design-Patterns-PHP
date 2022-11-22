@@ -1,0 +1,1 @@
+Creational tasarım desenleri, esnekliği ve mevcut kodun yeniden kullanımını artıran çeşitli nesne oluşturma mekanizmaları sağlar.
