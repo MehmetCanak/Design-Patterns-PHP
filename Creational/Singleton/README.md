@@ -4,7 +4,7 @@
 
 - Singleton, kendi türünde yalnızca bir nesnenin var olmasını sağlayan ve diğer tüm kodlar için ona tek bir erişim noktası sağlayan yaratıcı bir tasarım modelidir.
 
-<img src="./RefactoringGuru/singleton.PNG" align="center" height="220" width="300" />
+<img src="./RefactoringGuru/img/singleton.PNG" align="center" height="220" width="300" />
 
 ## Sorun 
 Singleton modeli, Tek Sorumluluk İlkesini ihlal ederek aynı anda iki sorunu çözer:
@@ -44,7 +44,7 @@ Kodunuzun Singleton sınıfına erişimi varsa Singleton'ın statik yöntemini �
 
 The government, Singleton modelinin mükemmel bir örneğidir. Bir ülkenin yalnızca bir resmi governmentı olabilir. Governmentları oluşturan bireylerin kişisel kimlikleri ne olursa olsun, "X governmentı" başlığı, sorumlu insan grubunu tanımlayan küresel bir erişim noktasıdır.
 
-<img src="./RefactoringGuru/structure.PNG" align="center" height="300" width="300" />
+<img src="./RefactoringGuru/img/structure.PNG" align="center" height="500" width="600" />
 
 ## Sözde kod 
 
@@ -99,4 +99,47 @@ class Application is
         // the variable `foo`.
 ```
 
+## Uygulanabilirlik
+
+**Programınızdaki bir sınıfın tüm istemciler için yalnızca tek bir örneğe sahip olması gerektiğinde Singleton modelini kullanın; örneğin, programın farklı bölümleri tarafından paylaşılan tek bir veritabanı nesnesi.**
+
+>Singleton modeli, özel oluşturma yöntemi dışında, bir sınıfın nesnelerini oluşturmanın diğer tüm yollarını devre dışı bırakır. Bu yöntem ya yeni bir nesne yaratır ya da önceden oluşturulmuşsa var olan bir nesneyi döndürür.
+
+**Global değişkenler üzerinde daha sıkı kontrole ihtiyaç duyduğunuzda Singleton modelini kullanın.**
+
+> Global değişkenlerin aksine Singleton modeli, bir sınıfın yalnızca bir örneğinin olduğunu garanti eder. Singleton sınıfının kendisi dışında hiçbir şey önbelleğe alınan örneğin yerini alamaz. Bu sınırlamayı her zaman ayarlayabileceğinizi ve istediğiniz sayıda Singleton örneği oluşturmaya izin verebileceğinizi unutmayın. Değiştirilmesi gereken tek kod parçası, getInstance yönteminin gövdesidir.
+
+## Nasıl Uygulanır? 
+
+- Singleton örneğini depolamak için sınıfa özel bir statik alan ekleyin. 
+- Singleton örneğini almak için genel bir statik oluşturma yöntemi bildirin. 
+- Statik yöntem içinde "tembel başlatma" uygulayın. İlk çağrısında yeni bir nesne oluşturmalı ve onu statik alana koymalıdır. 
+- Yöntem, sonraki tüm çağrılarda her zaman bu örneği döndürmelidir. Sınıfın yapıcısını özel yapın. Sınıfın statik yöntemi yine de yapıcıyı çağırabilir, ancak diğer nesneleri çağıramaz. 
+- İstemci kodunu gözden geçirin ve singleton'ın yapıcısına yapılan tüm doğrudan çağrıları, statik oluşturma yöntemine yapılan çağrılarla değiştirin.
+
+## Lehte ve aleyhte olanlar 
+
+### Lehte olanlar
+
+- Bir sınıfın yalnızca tek bir örneğine sahip olduğundan emin olabilirsiniz. 
+- Bu örneğe küresel bir erişim noktası kazanırsınız. 
+- Singleton nesnesi, yalnızca ilk kez istendiğinde başlatılır. 
+
+### Aleyhte olanlar
+
+- Tek Sorumluluk İlkesini İhlal Eder. Model aynı anda iki sorunu çözer. 
+- Singleton deseni, örneğin programın bileşenleri birbirleri hakkında çok fazla şey bildiğinde, kötü tasarımı maskeleyebilir.
+- Desen, çok iş parçacıklı bir ortamda özel işlem gerektirir, böylece birden çok iş parçacığı birkaç kez tek bir nesne oluşturmaz. 
+- Singleton'ın istemci kodunu test etmek zor olabilir çünkü birçok test çerçevesi, sahte nesneler üretirken kalıtıma dayanır. 
+- Singleton sınıfının oluşturucusu özel olduğundan ve çoğu dilde statik yöntemleri geçersiz kılmak imkansız olduğundan, singleton ile taklit etmenin yaratıcı bir yolunu düşünmeniz gerekir. Ya da sadece testleri yazmayın. Veya Singleton modelini kullanmayın.
+
+## Diğer Kalıplarla İlişkiler 
+
+Çoğu durumda tek bir cephe nesnesi yeterli olduğundan, bir Cephe sınıfı genellikle bir Singleton'a dönüştürülebilir. 
+Bir şekilde nesnelerin tüm paylaşılan durumlarını tek bir uçucu ağırlık nesnesine indirgemeyi başardıysanız, Flyweight Singleton'a benzer. Ancak bu kalıplar arasında iki temel fark vardır: 
+
+- Yalnızca bir Singleton örneği olmalıdır, oysa bir Flyweight sınıfı, farklı içsel durumlara sahip birden çok örneğe sahip olabilir.
+- Singleton nesnesi değişken olabilir. Flyweight nesneleri sabittir. 
+
+Abstract Factories,  Builders  ve  Prototypes lerin tümü Singleton olarak uygulanabilir.
 
