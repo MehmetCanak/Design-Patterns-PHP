@@ -4,7 +4,7 @@
 
 - Singleton, kendi türünde yalnızca bir nesnenin var olmasını sağlayan ve diğer tüm kodlar için ona tek bir erişim noktası sağlayan yaratıcı bir tasarım modelidir.
 
-![This is a alt text.](/RefactoringGuru/singleton.PNG "This is a sample image.")
+<img src="./RefactoringGuru/singleton.PNG" align="center" height="220" width="210" />
 
 ## Sorun 
 Singleton modeli, Tek Sorumluluk İlkesini ihlal ederek aynı anda iki sorunu çözer:
