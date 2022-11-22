@@ -113,7 +113,7 @@ class Application is
 
 - Singleton örneğini depolamak için sınıfa özel bir statik alan ekleyin. 
 - Singleton örneğini almak için genel bir statik oluşturma yöntemi bildirin. 
-- Statik yöntem içinde "tembel başlatma" uygulayın. İlk çağrısında yeni bir nesne oluşturmalı ve onu statik alana koymalıdır. 
+- Statik yöntem içinde "lazy initialization" uygulayın. İlk çağrısında yeni bir nesne oluşturmalı ve onu statik alana koymalıdır. 
 - Yöntem, sonraki tüm çağrılarda her zaman bu örneği döndürmelidir. Sınıfın yapıcısını özel yapın. Sınıfın statik yöntemi yine de yapıcıyı çağırabilir, ancak diğer nesneleri çağıramaz. 
 - İstemci kodunu gözden geçirin ve singleton'ın yapıcısına yapılan tüm doğrudan çağrıları, statik oluşturma yöntemine yapılan çağrılarla değiştirin.
 
