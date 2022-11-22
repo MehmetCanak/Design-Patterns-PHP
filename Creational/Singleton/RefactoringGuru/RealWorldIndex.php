@@ -73,7 +73,7 @@ class Logger extends Singleton
      */
     protected function __construct()
     {
-        $this->fileHandle = fopen('php://stdout', 'w');
+        $this->fileHandle = fopen(__DIR__.'\RealWorldIndexLog.txt', 'w'); //fopen('php://stdout', 'w');
     }
 
     /**
@@ -141,6 +141,7 @@ $config2 = Config::getInstance();
 if ($login == $config2->getValue("login") &&
     $password == $config2->getValue("password")
 ) {
+    Logger::Log('Login : '. $config2->getValue("login").' Password : '.$config2->getValue("password"));
     Logger::log("Config singleton also works fine.");
 }
 

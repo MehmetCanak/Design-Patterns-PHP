@@ -1,0 +1,5 @@
+2022-11-22: Started!
+2022-11-22: Logger has a single instance.
+2022-11-22: Login : test_login Password : test_password
+2022-11-22: Config singleton also works fine.
+2022-11-22: Finished!
